@@ -1,30 +1,60 @@
-const task = document.querySelector("#taskTodo");
-const input = document.querySelectorAll("input");
-const output = document.querySelector("list");
+const erand = document.querySelector("#erand");
+const input = document.querySelector(".input");
+const output = document.querySelector(".output");
 
-// Enter Task on input area
-function addTask() {
-  task.addEventListener("keypress", function (event) {
-    if (event.keyCode === 13) {
-      return input.value;
+function addTask(e) {
+  erand.addEventListener("keypress", (e) => {
+    e.preventDefault();
+
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+
+    const checkbox = document.createElement("input");
+    checkbox.innerHTML = input.checkbox;
+    document.body.appendChild("checkbox");
+    todoDiv.appendChild(checkbox);
+
+    const newLi = document.createElement("li").value;
+    newLi.innerText = li.value;
+    newLi.classlist.add("task");
+    todoDiv.appendChild(newLi);
+
+    const trash = document.createElement("i");
+    trash.innerHTML = '<i class="fa-solid fa-trash "></i>';
+    trash.classList.add("clear");
+    todoDiv.appendChild(trash);
+
+    todoList.appendChild(todoDiv);
+  });
+}
+
+// CHECKBOX FUNCTION (strikethrough when checked. able to do & undo strikethrough)//
+
+let checkbox = document.getElementById("checkbox");
+const myTask = document.querySelector(".task");
+
+function done() {
+  checkbox.addEventListener("click", (e) => {
+    if (checkbox.checked === "checkbox") {
+      checkbox.type = "checkbox";
+    } else {
+      checkbox.type = "";
+    }
+
+    if (checkbox.checked === true) {
+      myTask.style.display = "line-through";
+    } else {
+      myTask.style.display = "none";
     }
   });
 }
 
-// create list Item/ input
-function createItem(text) {
-  const listItem = document.createElement("li");
-  Item.push((addTask.value = "Wash car"));
-  newItem.textContent = text;
-  newItem.setAttribute("class", "addTask");
-  return newItem;
-}
+// TRASH BIN FUNCTION (be clickable + to clear and unclear)//
 
-function listDisplay(listItem) {
-  let newItem = document.createTextNode("Make dinner");
-  task.appendChild(input.values);
-  document.insertBefore(task, newItem);
-}
+// RESET FUNCTION ( delete all output)
+const button = document.getElementById("reset");
 
-let button = document.getElementById("submit");
-button.addEventListener("click", addTask);
+function reset() {
+  reset.addEventListener("click", "delete");
+  output.innerHTML = button.value;
+}

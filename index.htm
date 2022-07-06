@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script src="https://kit.fontawesome.com/dca0fa1f76.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Todo List</title>
 </head>
@@ -12,28 +12,29 @@
     
 <div class="container">
     <h1>ToDo List</h1>
-    <form > 
+   
+    <form id="myList"> 
     <div class="input">
-         <input  id="taskTodo" type="text" name="task" value="" placeholder="Enter Task"> 
-       <input id="submit" type="submit" name="task" value="ADD"> 
+         <input id="erand" type="text" placeholder="Enter Task"> 
+         <input id="submit" type="submit" name="task" value="ADD"> 
      </div>    
-  </form>
-
- <br><br>
-
-  <form >
-    <div class="output">
-       <input class="checkbox" type="checkbox"> 
-         <ul id="list" class="list-item" name="listItem">
-            <li class="addTask">Wash car</li>
-         </ul>
-         <input class="submit" type="submit" value="X">
-    </div>
+ <br>
+     <div id="list">
+       <ul id="output"  >
+        <div class="todo">
+         <input type="checkbox" id="checkbox">
+         <li class="task">Wash car</li>
+         <i class="fa-solid fa-trash clear"></i>
+        </div>
+      
+      </ul>
+                   
+   </div>
   </form>
 
       <br><br>
      <div class="reset">
-      <input id="clear" type="reset" value="Reset">
+      <button id="reset" type="submit" >Reset</button>
     </div>
 </div>
    
