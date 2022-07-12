@@ -1,60 +1,66 @@
-const erand = document.querySelector("#erand");
-const input = document.querySelector(".input");
-const output = document.querySelector(".output");
+const erand = document.querySelector("#erand").focus();
+const output = document.querySelector("#output");
+const addTaskButton = document
+  .querySelector("#submit")
+  .addEventListener("click", (e) => addTask(e));
 
-function addTask(e) {
-  erand.addEventListener("keypress", (e) => {
-    e.preventDefault();
+function addTask() {
+  e.preventDefault();
 
-    const todoDiv = document.createElement("div");
-    todoDiv.classList.add("todo");
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo");
 
-    const checkbox = document.createElement("input");
-    checkbox.innerHTML = input.checkbox;
-    document.body.appendChild("checkbox");
-    todoDiv.appendChild(checkbox);
+  const doneCheckbox = document.createElement("input");
+  doneCheckbox.setAttribute("type", "checkbox");
+  doneCheckbox.appendChild("input");
+  todoDiv.appendChild(doneCheckbox);
 
-    const newLi = document.createElement("li").value;
-    newLi.innerText = li.value;
-    newLi.classlist.add("task");
-    todoDiv.appendChild(newLi);
+  const newLi = document.createElement("li");
+  newLi.innerText = erand.value;
+  newLi.classlist.add("task");
+  todoDiv.appendChild(newLi);
+  output.insertAdjacentHTML("beforeend", newLi);
 
-    const trash = document.createElement("i");
-    trash.innerHTML = '<i class="fa-solid fa-trash "></i>';
-    trash.classList.add("clear");
-    todoDiv.appendChild(trash);
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = '<i class="fa-solid fa-trash clear"></i>';
+  trashButton.classList.add("btn");
+  todoDiv.appendChild(trashButton);
 
-    todoList.appendChild(todoDiv);
-  });
+  output.appendChild(todoDiv);
 }
 
 // CHECKBOX FUNCTION (strikethrough when checked. able to do & undo strikethrough)//
 
-let checkbox = document.getElementById("checkbox");
-const myTask = document.querySelector(".task");
+let taskCompleted = document.querySelector(".task");
+let checkbox = document
+  .getElementById("checkbox")
+  .addEventListener("checked", (e) => done(e));
 
 function done() {
-  checkbox.addEventListener("click", (e) => {
-    if (checkbox.checked === "checkbox") {
-      checkbox.type = "checkbox";
-    } else {
-      checkbox.type = "";
-    }
-
-    if (checkbox.checked === true) {
-      myTask.style.display = "line-through";
-    } else {
-      myTask.style.display = "none";
-    }
-  });
+  if (taskCompleted === true) {
+    return checkbox.checked && task.style.textDecoration == "line-through";
+  } else {
+    return (checkbox.default = "");
+  }
 }
 
-// TRASH BIN FUNCTION (be clickable + to clear and unclear)//
+//TRASH BIN FUNCTION (be clickable + to clear and unclear)//
 
+const erandCompleted = document
+  .querySelector(".clear")
+  .addEventListener("click", (e) => deleteErand(e));
+function deleteErand() {
+  if (taskCompleted === true) {
+    document.getElementsByClassName(clear).parentElement.remove();
+  } else {
+    return erand.default;
+  }
+}
 // RESET FUNCTION ( delete all output)
-const button = document.getElementById("reset");
-
 function reset() {
-  reset.addEventListener("click", "delete");
-  output.innerHTML = button.value;
+  const resetButton = document
+    .querySelector("#reset")
+    .addEventListener("click", (e) => {
+      reset.parentElement.remove();
+    });
 }
