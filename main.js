@@ -1,10 +1,10 @@
-const erand = document.querySelector("#erand").focus();
+const erand = document.querySelector("#erand");
 const output = document.querySelector("#output");
 const addTaskButton = document
   .querySelector("#submit")
   .addEventListener("click", (e) => addTask(e));
 
-function addTask() {
+function addTask(e) {
   e.preventDefault();
 
   const todoDiv = document.createElement("div");
@@ -12,55 +12,42 @@ function addTask() {
 
   const doneCheckbox = document.createElement("input");
   doneCheckbox.setAttribute("type", "checkbox");
-  doneCheckbox.appendChild("input");
+
+  doneCheckbox.check = (e) => {
+    if (doneCheckbox.checked == true) {
+      console.log(
+        (e.target.newLi.innerText.style.textDecoration = "line-through")
+      );
+    } else {
+      if (doneCheckbox.checked == false) {
+        console.log((e.target.newLi.innerText.style.textDecoration = "none"));
+      }
+    }
+  };
   todoDiv.appendChild(doneCheckbox);
 
   const newLi = document.createElement("li");
-  newLi.innerText = erand.value;
-  newLi.classlist.add("task");
+  newLi.innerHTML = erand.value;
+  newLi.setAttribute("class", "task");
   todoDiv.appendChild(newLi);
-  output.insertAdjacentHTML("beforeend", newLi);
+  erand.value = "";
 
   const trashButton = document.createElement("button");
   trashButton.innerHTML = '<i class="fa-solid fa-trash clear"></i>';
+  trashButton.onclick = (e) => {
+    // I need if statment here to toggle
+    console.log(e.target.parentElement.parentElement.removeChild(newLi));
+  };
   trashButton.classList.add("btn");
   todoDiv.appendChild(trashButton);
 
   output.appendChild(todoDiv);
 }
+// // RESET FUNCTION ( delete all output)
+// const resetButton = document
+//   .querySelector("#reset")
+//   .addEventListener("click", (e) => reset(e));
 
-// CHECKBOX FUNCTION (strikethrough when checked. able to do & undo strikethrough)//
-
-let taskCompleted = document.querySelector(".task");
-let checkbox = document
-  .getElementById("checkbox")
-  .addEventListener("checked", (e) => done(e));
-
-function done() {
-  if (taskCompleted === true) {
-    return checkbox.checked && task.style.textDecoration == "line-through";
-  } else {
-    return (checkbox.default = "");
-  }
-}
-
-//TRASH BIN FUNCTION (be clickable + to clear and unclear)//
-
-const erandCompleted = document
-  .querySelector(".clear")
-  .addEventListener("click", (e) => deleteErand(e));
-function deleteErand() {
-  if (taskCompleted === true) {
-    document.getElementsByClassName(clear).parentElement.remove();
-  } else {
-    return erand.default;
-  }
-}
-// RESET FUNCTION ( delete all output)
-function reset() {
-  const resetButton = document
-    .querySelector("#reset")
-    .addEventListener("click", (e) => {
-      reset.parentElement.remove();
-    });
-}
+// function reset(e) {
+//   document.querySelectorAll("erand").reset;
+// }

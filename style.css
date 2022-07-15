@@ -5,16 +5,6 @@
     border-radius: 10px;
 }
 
-.container{
-    background-color: rgb(181, 223, 221); 
-    border: solid 1px rgb(130, 133, 134);
-    width: 33%;
-    height: 400px; 
-    margin: 5% 33%;
-    display: inline-block;
-   
-}
-
 h1{
     color: rgb(133, 32, 32);
     font-family: Arial, Helvetica, sans-serif;
@@ -26,11 +16,21 @@ h1{
     padding-bottom: 20px;
 }
 
+.container{
+    background-color: rgb(181, 223, 221); 
+    border: solid 1px rgb(130, 133, 134);
+    margin: 5% 33%;
+    display: inline-block;
+   width:fit-content;
+   height: fit-content;
+}
+
 #erand{
     border:none;
-    width: 70%;
+    width: 50%;
     padding: 7px;
-    margin-left: 10px;
+    margin-left: 20%;
+  
 }
 
 #submit{
@@ -38,10 +38,11 @@ h1{
     border:solid 1px  rgb(160, 162, 161); 
     margin-left: 3px;
     font-size: large;
-    color:  rgb(7, 210, 199); ;
-    width:20%;
+    color:  rgb(133, 32, 32) ;
+    width: 50px;
     padding: 3px;
-    font-weight: 7px;
+    font-weight: 60px;
+    
 }
 
  ul{
@@ -52,48 +53,74 @@ h1{
 }
 
 .todo{
+   
     display: inline-flex;
-    position:relative;
-    width:100%;
+    position:static;
+    width:450px;
     background-color: rgb(244, 238, 244);
+    margin:0  15px;
+    margin-bottom:3px;
+
+}
+.todo:hover{
+    cursor:default;
+    color: rgb(160, 190, 190);
+   
 }
 
 #checkbox {
-    
-    margin: 0 5px;
+  position: absolute;
+  margin-top:7px;
+  margin-left: 5px;
+  
+   
  }  
 
 .task{
     list-style: none;
-    width: 250px;
-    align-items:stretch;
-    margin :5px 20px;
+    width: 350px;
+    margin :15px 20px;
     text-align: center;
+  
   }
 
-#btn{
-   border-radius: 20%;
-   border-bottom-color: rgb(248, 242, 242) 2px solid;
-    
-  
+.btn{
+    margin:7px;
+    border: 1px solid grey;
+    border-top-color: rgb(248, 242, 242) 5px solid;
+    width: 30px;
+    height:30px;
 }
 
 .clear{
    color: rgb(133, 32, 32);
-  ;
+   display: inline-block;
+   padding-top: 3px;
+   cursor: pointer;
+   font-size:large;
+ 
   
  } 
 
+ #btn{
+    border-radius: 20%;
+    border-top-color: rgb(170, 168, 168) 5px solid;
+    display:inline-block ;
+    position:initial;
+    align-items: center;
+   
+ }
+
 #reset{
     background-color:  rgb(133, 32, 32);
-    border:none;
+    border:solid 2px rgb(245, 248, 248);
     color:white;
-    font-size:large;
+    font-weight:large;
     border-radius:10%;
-    padding:5px 15px;
+    padding:5px 10px;
     display:inline-block ;
-    align-self: center;
-    margin-left:100px;
-    margin-right:100px;
-    margin-bottom: 25px;
+    position: sticky;
+    align-items: center;
+    margin:10% 42%;
+  
 }

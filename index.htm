@@ -14,27 +14,25 @@
     <h1>ToDo List</h1>
    
     <form id="myList"> 
-         <input id="erand" type="text" name="task" placeholder="Enter Task"> 
+         <input id="erand" type="text" name="task" placeholder="Enter Task" maxlength="30" > 
          <button id="submit">ADD</button>
      </form>   
  <br>
      <div id="list">
        <ul id="output"></ul>
       </div>
-        <div class="todo">
+        <!-- <div class="todo">
             <input type="checkbox" id="checkbox">
             <li class="task">Walk dog</li>
             <button class="btn">
                 <i class="fa-solid fa-trash clear"></i>
-            </button>
+            </button> -->
+<br>
+           <div class="reset">
+             <button id="reset" type="submit" >Reset</button>
+           </div>
         </div>
- 
- 
-
-      <br><br>
-     <div class="reset">
-      <button id="reset" type="submit" >Reset</button>
-    </div>
+     
 </div>
    
     <script src="main.js"></script>
