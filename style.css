@@ -55,7 +55,7 @@ h1{
 .todo{
    
     display: inline-flex;
-    position:static;
+    position:relative;
     width:450px;
     background-color: rgb(244, 238, 244);
     margin:0  15px;
@@ -90,6 +90,9 @@ h1{
     border-top-color: rgb(248, 242, 242) 5px solid;
     width: 30px;
     height:30px;
+    position: static;
+   
+    
 }
 
 .clear{

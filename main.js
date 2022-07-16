@@ -10,20 +10,19 @@ function addTask(e) {
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
 
+  // CHECKBOX
   const doneCheckbox = document.createElement("input");
   doneCheckbox.setAttribute("type", "checkbox");
 
-  doneCheckbox.check = (e) => {
+  doneCheckbox.addEventListener("click", (e) => {
     if (doneCheckbox.checked == true) {
-      console.log(
-        (e.target.newLi.innerText.style.textDecoration = "line-through")
-      );
+      newLi.style.textDecoration = "line-through";
     } else {
       if (doneCheckbox.checked == false) {
-        console.log((e.target.newLi.innerText.style.textDecoration = "none"));
+        newLi.style.textDecoration = "none";
       }
     }
-  };
+  });
   todoDiv.appendChild(doneCheckbox);
 
   const newLi = document.createElement("li");
@@ -32,22 +31,31 @@ function addTask(e) {
   todoDiv.appendChild(newLi);
   erand.value = "";
 
+  // TRASHBIN
   const trashButton = document.createElement("button");
   trashButton.innerHTML = '<i class="fa-solid fa-trash clear"></i>';
-  trashButton.onclick = (e) => {
-    // I need if statment here to toggle
-    console.log(e.target.parentElement.parentElement.removeChild(newLi));
-  };
   trashButton.classList.add("btn");
+
+  trashButton.onclick = (e) => {
+    console.log(e.target.parentElement.parentElement.removeChild(newLi));
+
+    trashButton.ondblclick = (e) => {
+      console.log(e.target.parentElement.parentElement.remove(todoDiv));
+    };
+  };
+
   todoDiv.appendChild(trashButton);
 
   output.appendChild(todoDiv);
 }
-// // RESET FUNCTION ( delete all output)
-// const resetButton = document
-//   .querySelector("#reset")
-//   .addEventListener("click", (e) => reset(e));
+// RESET FUNCTION ( delete all output)
 
-// function reset(e) {
-//   document.querySelectorAll("erand").reset;
-// }
+const todoDiv = document.getElementsByClassName("todo");
+
+const reset = document.getElementById("reset");
+
+reset.onclick = (e) => {
+  e.preventDefault();
+
+  console.log(e.target.parentElement.parentElement.removeChild(list));
+};
