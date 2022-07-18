@@ -6,7 +6,7 @@ const addTaskButton = document
   .addEventListener("click", (e) => addTask(e));
 
 // if (erand.value.length > 0) return (submit.disabled = false);
-// if (erand.value.length == 0) return (submit.disabled = true);
+//  (submit.disabled = true);
 
 // erand.addEventListener("click", (e) => {
 //   if (erand.value.length > 0) {
@@ -18,18 +18,17 @@ const addTaskButton = document
 
 function addTask(e) {
   e.preventDefault();
+  if (erand.value === "") return;
+  // const listDiv = document.createElement("div");
+  // listDiv.classList.add("list");
 
-  const listDiv = document.createElement("div");
-  listDiv.classList.add("list");
-
-  const newUl = document.createElement("ul");
-  newUl.setAttribute("id", "output");
-  listDiv.appendChild(newUl);
+  // const newUl = document.createElement("ul");
+  // newUl.setAttribute("id", "output");
+  // listDiv.appendChild(newUl);
 
   const newLi = document.createElement("li");
   newLi.classList.add("task");
-  newUl.appendChild(newLi);
-  erand.value = "";
+  // newUl.appendChild(newLi);
 
   // CHECKBOX
   const doneCheckbox = document.createElement("input");
@@ -47,7 +46,7 @@ function addTask(e) {
   newLi.appendChild(doneCheckbox);
 
   const par = document.createElement("p");
-  par.innerText = "<p>par.value</p>";
+  par.innerText = erand.value;
   par.setAttribute("class", "text");
   newLi.appendChild(par);
 
@@ -57,14 +56,14 @@ function addTask(e) {
   trashButton.classList.add("btn");
 
   trashButton.onclick = (e) => {
-    console.log(
-      e.target.parentElement.parentElement.parentNode.remove(listDiv)
-    );
+    console.log(e.target.parentElement.parentElement.parentNode.remove(newLi));
   };
 
   newLi.appendChild(trashButton);
 
-  todo.appendChild(listDiv);
+  todo.appendChild(newLi);
+
+  erand.value = "";
 }
 // RESET FUNCTION ( delete all output)
 const todoDiv = document.getElementsByClassName("todo");
