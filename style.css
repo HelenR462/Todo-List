@@ -8,9 +8,10 @@
 .container{
     background-color: rgb(181, 223, 221); 
     border: solid 1px rgb(130, 133, 134);
-    margin:5% 40%;
+    margin:5% 20%;
     display: inline-block;
     height: fit-content;
+    width:45%;
 }
 
 h1{
@@ -24,7 +25,7 @@ h1{
 
 #erand{
     border:none;
-    width: 60%;
+    width:60%;
     padding: 7px;
     margin-left: 30px;
   
@@ -38,75 +39,72 @@ h1{
     width: 20%;
     padding: 3px;
     font-weight: 60px;
-    
 }
 
- #output{
-    width:100%;
+#output{
+   
     display:inline-block;
-    margin:0 13px;
-   
-   
+    margin:0 ;
+     
 }
 
 .list{
-   
-    display: inline-flex;
+    display: inline-block;
     position:relative;
     background-color: rgb(244, 238, 244);
-    margin:0  15px;
+    margin:0 27px;
     margin-bottom:3px;
+    width: 90%;
+    
+  
+ }
 
-}
-.list:hover{
-    cursor:default;
-    color: rgb(160, 190, 190);
+input.checkbox {
+    position:relative;
    
-}
-
-#checkbox {
-  position: absolute;
-  margin-top:13px;
-  margin-left: 10px;
-  width:20px ;
-  height: 20px;
-   
+    display: inline-block;
+ 
  }  
 
 .task{
     list-style: none;
-    width: 150px;
-    margin :15px 20px;
-    text-align: center;
-    display:inline-block;
+    position: relative;
+    display:block;
   
   }
 
+p.text{
+      color: rgb(82, 81, 81);
+      display: inline;
+      margin-right:90px;
+     margin-left:70px
+
+  }
+
 .btn{
-    margin:7px;
+    margin: 5px;
+  
     border: 1px solid grey;
     border-top-color: rgb(248, 242, 242) 5px solid;
     width: 30px;
     height:30px;
-   display: inline-block;
-   
+    position: relative; 
     
 }
 
 .clear{
    color: rgb(133, 32, 32);
-   display: inline-block;
    padding-top: 3px;
    cursor: pointer;
    font-size:large;
- 
+  
   
  } 
 
  #btn{
     border-radius: 20%;
-    border-top-color: rgb(170, 168, 168) 5px solid;
-    display:inline-block ;
+    border-top-color: rgb(242, 239, 239) 5px solid;
+    display:inline-block;
     position:initial;
     align-items: center;
    

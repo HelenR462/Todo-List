@@ -5,17 +5,31 @@ const addTaskButton = document
   .querySelector("#submit")
   .addEventListener("click", (e) => addTask(e));
 
+// if (erand.value.length > 0) return (submit.disabled = false);
+// if (erand.value.length == 0) return (submit.disabled = true);
+
+// erand.addEventListener("click", (e) => {
+//   if (erand.value.length > 0) {
+//     addTaskButton.disabled = false;
+//   } else {
+//     addTaskButton.disabled = true;
+//   }
+// });
+
 function addTask(e) {
   e.preventDefault();
 
-  for (i = 0; i < erand.length; i++) {
-    if (erand.length == 0) {
-      console.log("");
-    }
-  }
-
   const listDiv = document.createElement("div");
   listDiv.classList.add("list");
+
+  const newUl = document.createElement("ul");
+  newUl.setAttribute("id", "output");
+  listDiv.appendChild(newUl);
+
+  const newLi = document.createElement("li");
+  newLi.classList.add("task");
+  newUl.appendChild(newLi);
+  erand.value = "";
 
   // CHECKBOX
   const doneCheckbox = document.createElement("input");
@@ -30,17 +44,12 @@ function addTask(e) {
       }
     }
   });
-  listDiv.appendChild(doneCheckbox);
+  newLi.appendChild(doneCheckbox);
 
-  const output = document.createElement("ul");
-  output.setAttribute("id", "output");
-  listDiv.appendChild(output);
-
-  const newLi = document.createElement("li");
-  newLi.innerHTML = erand.value;
-  newLi.setAttribute("class", "task");
-  output.appendChild(newLi);
-  erand.value = "";
+  const par = document.createElement("p");
+  par.innerText = "<p>par.value</p>";
+  par.setAttribute("class", "text");
+  newLi.appendChild(par);
 
   // TRASHBIN
   const trashButton = document.createElement("button");
@@ -48,10 +57,12 @@ function addTask(e) {
   trashButton.classList.add("btn");
 
   trashButton.onclick = (e) => {
-    console.log(e.target.parentElement.parentNode.remove(listDiv));
+    console.log(
+      e.target.parentElement.parentElement.parentNode.remove(listDiv)
+    );
   };
 
-  listDiv.appendChild(trashButton);
+  newLi.appendChild(trashButton);
 
   todo.appendChild(listDiv);
 }
