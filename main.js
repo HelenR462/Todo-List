@@ -16,17 +16,16 @@ function addTask(e) {
   const doneCheckbox = document.createElement("input");
   doneCheckbox.setAttribute("type", "checkbox");
 
-  doneCheckbox.addEventListener("click", (e) => {
-    if (doneCheckbox.checked == true) {
-      newLi.style.textDecoration = "line-through";
-    } else {
-      if (doneCheckbox.checked == false) {
-        newLi.style.textDecoration = "none";
-      }
+  doneCheckbox.addEventListener("click", () => {
+    if (doneCheckbox.checked) {
+      newLi.style.textDecoration = "line-through"
+     } else {
+      newLi.style.textDecoration = "none";
     }
   });
   newLi.appendChild(doneCheckbox);
 
+  // TEXT
   const par = document.createElement("p");
   par.innerText = erand.value;
   par.setAttribute("class", "text");
@@ -38,7 +37,8 @@ function addTask(e) {
   trashButton.classList.add("btn");
 
   trashButton.onclick = (e) => {
-    e.target.parentElement.parentElement.remove(newLi);
+    // e.target.parentElement.parentElement.remove(newLi);
+    newLi.remove();
   };
 
   newLi.appendChild(trashButton);
@@ -48,11 +48,11 @@ function addTask(e) {
   erand.value = "";
 }
 // RESET FUNCTION ( delete all output)
-const todoDiv = document.getElementsByClassName("todo");
+// const todoDiv = document.getElementsByClassName("todo");
 const resetButton = document.getElementById("reset");
 
-resetButton.onclick = (e) => {
-  e.target.parentElement.parentElement.removeChild(todo);
-
-  location.reload();
+resetButton.onclick = () => {
+  // e.target.parentElement.parentElement.removeChild(todo);
+  todo.innerHTML = "";
+  // location.reload();
 };
